@@ -79,8 +79,8 @@ detect_proxy() {
     MINGW*|MSYS*|CYGWIN*)
       command -v reg >/dev/null 2>&1 || return 0
       local enabled server
-      enabled="$(reg query 'HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings' /v ProxyEnable 2>/dev/null | awk '/ProxyEnable/{print $NF}')"
-      server="$(reg query 'HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings' /v ProxyServer 2>/dev/null | awk '/ProxyServer/{print $NF}')"
+      enabled="$(reg query 'HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings' //v ProxyEnable 2>/dev/null | awk '/ProxyEnable/{print $NF}')"
+      server="$(reg query 'HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings' //v ProxyServer 2>/dev/null | awk '/ProxyServer/{print $NF}')"
       if [ "$enabled" = "0x1" ] && [ -n "$server" ]; then
         # ProxyServer 可能是 "host:port" 或 "http=...;https=..."
         case "$server" in
