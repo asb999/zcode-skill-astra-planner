@@ -1,0 +1,9 @@
+# planner 产物
+.astra/
+*.log
+plan.raw.md
+prompt.txt
+
+# OS
+.DS_Store
+Thumbs.db
